@@ -5,9 +5,19 @@ Technologies used: React, JavaScript, Styled-Components, API.
 
 ## Installation
 
+Follow the instructions below:
+
 ```bash
-  git clone https://github.com/your/your-project.git
+  git clone https://github.com/GregMalczynski/react-chatGPT.git
   cd your-project/
   npm install/
   npm install --save styled-components/
+```
+
+## Need ChatGPT Api Key
+
+Generate the API KEY from https://platform.openai.com/ , copy and paste into the file that is located here:
+
+```bash
+  your-project/src/data/apiKey.js
 ```
