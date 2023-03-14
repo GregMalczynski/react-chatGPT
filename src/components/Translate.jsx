@@ -1,20 +1,28 @@
-import styled from "styled-components"
+import styled from "styled-components";
+import { useEffect, useState } from "react";
 
-const Translate = ({showResult, setInputValue, inputValue, result, backToMenu, name, header}) => {
+const Translate = ({...args}) => {
 
-    console.log(result)
+    const {showResult, setInputValue, inputValue, result, backToMenu, name, header} = args;
 
+        const [ newResult, setNewResult ] = useState([])
+
+    useEffect(() => {
+        let reverse = result.reverse()
+        setNewResult(reverse)
+    }, [result])
     return(
         <Wrapper>
             <Header>
                 <h1>{header.title}</h1>
-                <p>{header.description}</p>
+                <h3 style={{fontWeight: '400'}}>{header.description}</h3>
             </Header>
             <Conversation>
-            {result.map((item, index) => {
+            {newResult.map((item, index) => {
                 return <div key={index}>
-                        <p>{name}: {item?.input}</p>
-                        <p>Bot: {item?.response}</p>
+                        <Section><Log><img src="./cloud-1.svg" /><p>{name}: </p></Log><Text><p>{item?.input}</p></Text></Section>
+                        <Section><Log><img src="./cloud-2.svg" /><p style={{color: '#F9CBB4'}}>AI: </p></Log><Text><p style={{color: '#F9CBB4'}}>{item?.response}</p></Text></Section>
+                        <br />
                 </div> 
             })}
             </Conversation>
@@ -51,10 +59,40 @@ const Header = styled.div`
 const Conversation = styled.div`
     height: 70vh;
     min-width: 320px;
-    max-width: 800px;
+    max-width: 850px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
+    overflow-y: scroll;
 
+    ::-webkit-scrollbar {
+        width: 10px;
+      }
+    ::-webkit-scrollbar-track {
+        background: #3F0A3F; 
+      }
+    ::-webkit-scrollbar-thumb {
+        background: #8FC964; 
+        border-radius: 5px;
+      }
+`
+const Section = styled.div`
+    display: flex;
+    flex-direction: row;
+`
+const Log = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    img{
+        width: 22px;
+    }
+    
+    p{
+        width: 80px;
+    }
+`
+const Text = styled.div`
 `
 const Bottom = styled.div`
     height: 30vh;
@@ -89,20 +127,24 @@ const ButtonAsk = styled.div`
         font-size: 20px;
         align-text: center;
         border: none;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+    button:hover {
+        background: #F9CBB4;
     }
 `
-const ButtonBack = styled.div`
-width: 100%;
-display: flex;
-align-items: center;
-justify-content: center;
+const ButtonBack = styled(ButtonAsk)`
+
 button{
-    width: 50%;
-    height: 40px;
-    border-radius: 20px;
     border: 1px solid #8FC964;
+    background: none;
     color: #8FC964;
     font-size: 18px;
     align-text: center;
+}
+button:hover {
+    background: none;
+    color: #F9CBB4;
 }
 `

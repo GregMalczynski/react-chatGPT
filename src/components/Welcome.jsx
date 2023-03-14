@@ -39,6 +39,11 @@ const Content = styled.div`
         border: 1px solid #8FC964;
         width: 100%;
     }
+    input:focus {
+        outline: none ;
+        border: 1px solid #8FC964;
+        box-shadow: none;
+      }
     button {
         width: 100%;
         height: 40px;
@@ -47,6 +52,7 @@ const Content = styled.div`
         font-size: 18px;
         background: #8FC964;
         color: #3F0A3F;
+        cursor: pointer;
     }
     img {
         width: 150px;

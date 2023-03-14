@@ -76,8 +76,6 @@ const Main = ({name}) => {
                 />
             }
             </RightSide>
-
-            
         </Wrapper>
     )
 }
@@ -90,6 +88,10 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media (max-width: 756px) {
+        flex-direction: column;
+    }
 `
 const LeftSide = styled.div`
     width: 50%;
@@ -100,7 +102,20 @@ const LeftSide = styled.div`
     align-items: center;
     justify-content: left;
     gap: 20px;
-    
+
+    @media (max-width: 1100px) {
+        margin-left: 15px;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+    }
+    @media (max-width: 768px) {
+        width: 100%;
+        margin-left: 15px;
+        flex-direction: column;
+        height: 100vh;
+    }
 `
 const Logo = styled.div`
     img{
@@ -143,4 +158,12 @@ const RightSide = styled.div`
     background-repeat: repeat;
     background-size: cover;
     background-position: center;
+
+    @media (max-width: 756px) {
+        width: 100%;
+        height: 120vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 `
