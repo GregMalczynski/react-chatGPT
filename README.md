@@ -7,6 +7,14 @@ Technologies used: React, JavaScript, Styled-Components, API.
 
 ![App Screenshot](https://github.com/GregMalczynski/react-chatGPT/blob/master/screen-shots/chat-1.jpg?raw=true)
 
+## Technologies Used
+
+- CSS
+- React
+- JavaScript
+- styled-components
+- API
+
 ## Installation
 
 Follow the instructions below:
