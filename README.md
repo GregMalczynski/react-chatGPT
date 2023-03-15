@@ -5,6 +5,7 @@ It is an application based on OpenAI ChatGTP. After giving your name, you can ch
 ## Screenshots
 
 ![App Screenshot](https://github.com/GregMalczynski/react-chatGPT/blob/master/screen-shots/chat-1.jpg?raw=true)
+![App Screenshot](https://github.com/GregMalczynski/react-chatGPT/blob/master/screen-shots/chat-3.jpg?raw=true)
 ![App Screenshot](https://github.com/GregMalczynski/react-chatGPT/blob/master/screen-shots/chat-2.jpg?raw=true)
 
 ## Technologies Used
