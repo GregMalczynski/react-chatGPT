@@ -5,12 +5,7 @@ const Translate = ({...args}) => {
 
     const {showResult, setInputValue, inputValue, result, backToMenu, name, header} = args;
 
-        const [ newResult, setNewResult ] = useState([])
-
-    useEffect(() => {
-        let reverse = result.reverse()
-        setNewResult(reverse)
-    }, [result])
+    console.log('length' + result.length)
     return(
         <Wrapper>
             <Header>
@@ -18,7 +13,7 @@ const Translate = ({...args}) => {
                 <h3 style={{fontWeight: '400'}}>{header.description}</h3>
             </Header>
             <Conversation>
-            {newResult.map((item, index) => {
+            {result.slice().reverse().map((item, index) => {
                 return <div key={index}>
                         <Section><Log><img src="./cloud-1.svg" /><p>{name}: </p></Log><Text><p>{item?.input}</p></Text></Section>
                         <Section><Log><img src="./cloud-2.svg" /><p style={{color: '#F9CBB4'}}>AI: </p></Log><Text><p style={{color: '#F9CBB4'}}>{item?.response}</p></Text></Section>

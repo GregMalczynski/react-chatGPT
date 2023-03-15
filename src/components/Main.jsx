@@ -46,6 +46,7 @@ const Main = ({name}) => {
     const backToMenu = () => {
         setOption({})
         setIsLeftSide(true)
+        setResult([])
     }
 
     return(
