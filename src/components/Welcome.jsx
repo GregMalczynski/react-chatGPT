@@ -32,6 +32,9 @@ const Content = styled.div`
     align-items: center;
     gap: 10px;
 
+    h2{
+        font-weight: 400;
+    }
     input {
         padding 10px;
         border-radius: 20px;
