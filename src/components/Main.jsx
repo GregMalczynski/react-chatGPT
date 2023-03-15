@@ -56,10 +56,11 @@ const Main = ({name}) => {
                     <img src="./ai_logo.svg" />
                 </Logo>
                 <Header>
-                    <h3>Hey {name},</h3>
+                    <h3>Hey <b style={{color: '#F9CBB4'}}>{name}</b>,</h3>
                     <p>Welcome in</p>
                     <h1>OpenAI</h1>
-                    <p>Lets choice conversation subject with AI</p>
+                    <p>You can talk here to see how artificial intelligence works. The chat is based on the ChatGPT API model.<br />
+                    Lets choice conversation subject with AI</p>
                 </Header>
             </LeftSide>
             <RightSide imgUrl='./introducing-chatgpt-and-whisper-apis.avif'>
@@ -91,6 +92,7 @@ const Wrapper = styled.div`
     justify-content: center;
 
     @media (max-width: 756px) {
+        height: 200vh;
         flex-direction: column;
     }
 `
@@ -98,6 +100,7 @@ const LeftSide = styled.div`
     width: 50%;
     height: 100vh;
     margin-left: 50px;
+    margin-right: 20px;
     display: ${(props) => props.isLeftSide ? 'flex' : 'none'};
     flex-direction: row;
     align-items: center;
@@ -113,9 +116,9 @@ const LeftSide = styled.div`
     }
     @media (max-width: 768px) {
         width: 100%;
-        margin-left: 15px;
-        flex-direction: column;
         height: 100vh;
+        margin-left: 15px;
+        flex-direction: column;   
     }
 `
 const Logo = styled.div`
@@ -148,6 +151,13 @@ const Header = styled.div`
         font-size: 20px;
         font-weight: 400;
     }
+    @media (max-width: 756px) {
+        margin-left: 20px;
+        margin-right: 20px;
+        align-items: center;
+        justify-content: center;
+        justify-text: center;
+    }
 `
 const RightSide = styled.div`
     width: 50%;
@@ -162,7 +172,7 @@ const RightSide = styled.div`
 
     @media (max-width: 756px) {
         width: 100%;
-        height: 120vh;
+        height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
