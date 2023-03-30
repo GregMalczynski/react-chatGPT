@@ -32,6 +32,9 @@ const Content = styled.div`
     align-items: center;
     gap: 10px;
 
+    p{
+        text-align: center;
+    }
     h2{
         font-weight: 400;
     }
@@ -56,6 +59,11 @@ const Content = styled.div`
         background: #8FC964;
         color: #3F0A3F;
         cursor: pointer;
+        transition: 0.2s;
+
+        &:hover {
+            background: #85AF61;
+        }
     }
     img {
         width: 150px;

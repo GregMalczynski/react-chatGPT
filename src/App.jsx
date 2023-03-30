@@ -1,52 +1,59 @@
-import { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import { useEffect, useState, useRef } from 'react';
 import Main from "./components/Main";
 import Welcome from './components/Welcome';
 
 const App = () => {
 
   const validParms = {
-    minLength: 3,
+    minLength: 4,
     maxLength: 12,
   }
 
+  const firstRender = useRef(true);
+
   const [ name, setName ] = useState('');
   const [ error, setError ] = useState('');
-  const [ isValid, setIsValid ] = useState(false)
-  const [ nextPage, setNextPage ] = useState(false)
+  const [ isValid, setIsValid ] = useState(false);
+  const [ nextPage, setNextPage ] = useState(false);
 
   const handleChange = (e) => {
-    setName(e.target.value)
+    let value = e.target.value;
+    setName(value);
   }
 
   useEffect(() => {
-    if ( !name || name == '' ) {
-      setError('Cant be empty')
+    if ( firstRender.current ) {
+      setError('')
+        if ( name.length > 0 ) {
+          firstRender.current = false;
+        }   
     } else {
-      if ( name.length < validParms.minLength || name.length > validParms.maxLength ) {
-        setError('wrong length')
-        setIsValid(false)
+      if ( !name || name === '' ) {
+        setError('Input cannot be empty');
       } else {
-        setError('')
-        setIsValid(true)
+        if ( name.length < validParms.minLength || name.length > validParms.maxLength ) {
+          setError('Name length should be between (4-12) characters');
+          setIsValid(false);
+        } else {
+          setError('');
+          setIsValid(true);
+        }
       }
     }
   }, [name])
 
   const validCheck = () => {
     if ( isValid ) {
-      setNextPage(true)
+      setNextPage(true);
     } 
-    return
+    return;
   }
-
-  console.log(name)
 
 return(
     <div>
       { nextPage ? 
       <Main name={name}/> :
-      <Welcome handleChange={handleChange} error={error} validCheck={validCheck}/>
+      <Welcome handleChange={handleChange} error={error} validCheck={validCheck} />
     }
     </div>
   )
